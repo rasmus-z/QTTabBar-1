@@ -46,7 +46,7 @@
             <UpgradeVersion Minimum="$(var.ProductVersion)" IncludeMinimum="no" OnlyDetect="yes" Property="NEWPRODUCTFOUND" />
             <UpgradeVersion Minimum="$(var.RTMProductVersion)" IncludeMinimum="yes" OnlyDetect="no" Maximum="$(var.ProductVersion)" IncludeMaximum="no" Property="UPGRADEFOUND" />
         </Upgrade>
-        <Binary Id="InstallerHelper" SourceFile="..\InstallerHelper\bin\Release\InstallerHelper.dll" />
+        <Binary Id="InstallerHelper" SourceFile="..\InstallerHelper\bin\Debug\InstallerHelper.dll" />
         <PropertyRef Id="NETFRAMEWORK35"/>
         <PropertyRef Id="NETFRAMEWORK40CLIENT"/>
         
@@ -55,31 +55,30 @@
                 <Directory Id="INSTALLLOCATION" Name="$(var.SkuName)">
                     <!-- Files -->
                     <Component Id="ShellLibrary" Guid="27af1a85-9a01-4c79-bdeb-d73fd4bd9574" Win64="yes" DisableRegistryReflection="yes">
-                        <File Id="f1" Assembly=".net" KeyPath="yes" Name="Interop.SHDocVw.dll" Source="..\BandObjectLib\bin\Release\Interop.SHDocVw.dll">
+                        <File Id="f1" Assembly=".net" KeyPath="yes" Name="Interop.SHDocVw.dll" Source="..\BandObjectLib\bin\Debug\Interop.SHDocVw.dll">
                             <netfx:NativeImage Id="ngen_Interop.SHDocVw.dll" Priority="0" Platform="all" />
                         </File>
                     </Component>
                     <Component Id="BandObjectLib" Guid="27af1a85-9a02-4c79-bdeb-d73fd4bd9574"  Win64="yes" DisableRegistryReflection="yes">
-                        <File Id="f2" Assembly=".net" KeyPath="yes" Name="BandObjectLib.dll" Source="..\BandObjectLib\bin\Release\BandObjectLib.dll">
+                        <File Id="f2" Assembly=".net" KeyPath="yes" Name="BandObjectLib.dll" Source="..\BandObjectLib\bin\Debug\BandObjectLib.dll">
                             <netfx:NativeImage Id="ngen_BandObjectLib.dll" Priority="0" Platform="all" />
                         </File>
                     </Component>
                     <Component Id="QTPluginLib" Guid="27af1a85-9a03-4c79-bdeb-d73fd4bd9574"  Win64="yes" DisableRegistryReflection="yes">
-                        <File Id="f3" Assembly=".net" KeyPath="yes" Name="QTPluginLib.dll" Source="..\QTPluginLib\bin\Release\QTPluginLib.dll">
+                        <File Id="f3" Assembly=".net" KeyPath="yes" Name="QTPluginLib.dll" Source="..\QTPluginLib\bin\Debug\QTPluginLib.dll">
                             <netfx:NativeImage Id="ngen_QTPluginLib.dll" Priority="0" Platform="all" />
                         </File>
                     </Component>
                     <Component Id="QTTabBar" Guid="27af1a85-9a04-4c79-bdeb-d73fd4bd9574"  Win64="yes" DisableRegistryReflection="yes">
-                        <File Id="f4" Assembly=".net" KeyPath="yes" Name="QTTabBar.dll" Source="..\QTTabBar\bin\Release\QTTabBar.dll">
+                        <File Id="f4" Assembly=".net" KeyPath="yes" Name="QTTabBar.dll" Source="..\QTTabBar\bin\Debug\QTTabBar.dll">
                             <netfx:NativeImage Id="ngen_QTTabBar.dll" Priority="0" Platform="all" />
                         </File>
                     </Component>
                     <Component Id="HookLibrary32" Win64="yes" Guid="27af1a85-9a06-4c79-bdeb-d73fd4bd9574" DisableRegistryReflection="yes">
-                        <File Id="f5" Name="QTHookLib32.dll" Source="..\QTHookLib\bin\Release\QTHookLib32.dll" KeyPath="yes" />
+                        <File Id="f5" Name="QTHookLib32.dll" Source="..\QTHookLib\bin\Debug\QTHookLib32.dll" KeyPath="yes" />
                     </Component>
-                    <Component Id="HookLibrary64" Win64="yes" Guid="27af1a85-9a07-4c79-bdeb-d73fd4bd9574" DisableRegistryReflection="yes">
-                        <File Id="f6" Name="QTHookLib64.dll" Source="..\QTHookLib\bin\Release\QTHookLib64.dll" KeyPath="yes" />
-                    </Component>
+                   
+                    
                     
                     
                     <?foreach arch in x86;x64 ?>
@@ -184,7 +183,6 @@
             <ComponentRef Id="QTPluginLib" />
             <ComponentRef Id="QTTabBar" />
             <ComponentRef Id="HookLibrary32" />
-            <ComponentRef Id="HookLibrary64" />
 
             <?foreach arch in x86;x64 ?>
                 <!-- RegKeys -->

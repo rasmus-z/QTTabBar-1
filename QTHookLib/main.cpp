@@ -20,7 +20,10 @@
 #include <Shlobj.h>
 #include <UIAutomationCore.h>
 #include "CComPtr.h"
-#include "..\MinHook\MinHook.h"
+#include "MinHook.h"
+
+#pragma comment(lib, "libMinHook.x86.lib")
+#pragma comment(lib, "MSVCRTD.lib")
 
 // Hook declaration macro
 #define DECLARE_HOOK(id, ret, name, params)                                         \
